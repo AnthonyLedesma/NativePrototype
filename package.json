@@ -4,8 +4,7 @@
   "description": "Used to preform a basig GET request from the hosted MongoDB.",
   "main": "index.js",
   "dependencies": {
-    "mongoose": "^5.4.1",
-    "npm": "^6.5.0"
+    "mongoose": "^5.4.1"
   },
   "devDependencies": {},
   "scripts": {
