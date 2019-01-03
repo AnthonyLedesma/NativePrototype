@@ -1,6 +1,6 @@
 //application uses AWS Lambda, AWS API Gateway, and is connected to using React Native application. 
 //.env files to hold sensitive information. 
-// exports.handler = async (event) => {
+exports.handler = async (event) => {
 var mongoose = require("mongoose");
 const { Site } = require('./models/site');
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
@@ -21,4 +21,4 @@ const setResponse = async() =>{
     return response;
 }
 return setResponse();
-// } //ends the lambda export handler function. 
+} //ends the lambda export handler function. 
