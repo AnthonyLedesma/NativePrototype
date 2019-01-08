@@ -1,0 +1,20 @@
+{
+    "projectName": "NativeProto",
+    "projectPath": "C:\\Users\\aledesma\\OneDrive - Go Daddy.com, LLC, A Delaware Company\\reactNative\\NativeProto",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "C:\\Users\\aledesma\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react-native",
+        "config": {
+            "SourceDir": "/",
+            "DistributionDir": "/dist",
+            "BuildCommand": "expo eject",
+            "StartCommand": "expo start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "C:\\Users\\aledesma\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-provider-awscloudformation"
+    }
+}

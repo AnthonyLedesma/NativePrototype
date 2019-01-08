@@ -1,0 +1,20 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "ativeroto-20190106113820-authRole",
+			"UnauthRoleArn": "arn:aws:iam::020268921984:role/ativeroto-20190106113820-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::020268921984:role/ativeroto-20190106113820-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "ativeroto-20190106113820-deployment",
+			"UnauthRoleName": "ativeroto-20190106113820-unauthRole",
+			"StackName": "ativeroto-20190106113820",
+			"StackId": "arn:aws:cloudformation:us-west-2:020268921984:stack/ativeroto-20190106113820/3e25b350-11e2-11e9-a25a-0a9edf17d014"
+		}
+	},
+	"auth": {
+		"cognito30d2687d": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
