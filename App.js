@@ -1,22 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
 
 Amplify.configure(amplify);
 
-import { withAuthenticator } from 'aws-amplify-react-native';
+import AppContainer from './navigator/MyNavigator';
 
-class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -26,5 +17,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />
+  }
+}
 
-export default withAuthenticator(App);
+
