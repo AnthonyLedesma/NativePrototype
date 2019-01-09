@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "crnaativeroto-20190109091324-authRole",
+            "UnauthRoleArn": "arn:aws:iam::020268921984:role/crnaativeroto-20190109091324-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::020268921984:role/crnaativeroto-20190109091324-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "crnaativeroto-20190109091324-deployment",
+            "UnauthRoleName": "crnaativeroto-20190109091324-unauthRole",
+            "StackName": "crnaativeroto-20190109091324",
+            "StackId": "arn:aws:cloudformation:us-west-2:020268921984:stack/crnaativeroto-20190109091324/7d8f0390-1429-11e9-b758-503acbd4dc29"
+        }
+    }
+}

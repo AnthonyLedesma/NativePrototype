@@ -1,6 +1,6 @@
 {
-    "projectName": "NativeProto",
-    "projectPath": "C:\\Users\\aledesma\\OneDrive - Go Daddy.com, LLC, A Delaware Company\\reactNative\\NativeProto",
+    "projectName": "crnaNativeProto",
+    "projectPath": "C:\\Users\\aledesma\\OneDrive - Go Daddy.com, LLC, A Delaware Company\\reactNative\\create-react-native-app\\crnaNativeProto",
     "defaultEditor": "code",
     "frontendHandler": {
         "javascript": "C:\\Users\\aledesma\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
@@ -10,8 +10,8 @@
         "config": {
             "SourceDir": "/",
             "DistributionDir": "/dist",
-            "BuildCommand": "expo eject",
-            "StartCommand": "expo start"
+            "BuildCommand": "npm eject",
+            "StartCommand": "npm start"
         }
     },
     "providers": {

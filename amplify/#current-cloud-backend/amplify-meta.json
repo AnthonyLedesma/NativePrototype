@@ -1,14 +1,35 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "ativeroto-20190106113820-authRole",
-            "UnauthRoleArn": "arn:aws:iam::020268921984:role/ativeroto-20190106113820-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::020268921984:role/ativeroto-20190106113820-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "ativeroto-20190106113820-deployment",
-            "UnauthRoleName": "ativeroto-20190106113820-unauthRole",
-            "StackName": "ativeroto-20190106113820",
-            "StackId": "arn:aws:cloudformation:us-west-2:020268921984:stack/ativeroto-20190106113820/3e25b350-11e2-11e9-a25a-0a9edf17d014"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "crnaativeroto-20190109091324-authRole",
+			"UnauthRoleArn": "arn:aws:iam::020268921984:role/crnaativeroto-20190109091324-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::020268921984:role/crnaativeroto-20190109091324-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "crnaativeroto-20190109091324-deployment",
+			"UnauthRoleName": "crnaativeroto-20190109091324-unauthRole",
+			"StackName": "crnaativeroto-20190109091324",
+			"StackId": "arn:aws:cloudformation:us-west-2:020268921984:stack/crnaativeroto-20190109091324/7d8f0390-1429-11e9-b758-503acbd4dc29"
+		}
+	},
+	"auth": {
+		"cognito6c2bfdc9": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/crnaativeroto-20190109091324-deployment/amplify-cfn-templates/auth/cognito6c2bfdc9-cloudformation-template.yml",
+				"logicalId": "authcognito6c2bfdc9"
+			},
+			"lastPushTimeStamp": "2019-01-09T16:19:40.453Z",
+			"output": {
+				"AppClientSecret": "pr2t8h33u9r46h4bb22lnosn52utu8i68tvu6lke1sv2jqp2uc5",
+				"UserPoolId": "us-west-2_JQxBVTZec",
+				"AppClientIDWeb": "5b87khlhkutm3f23l50709agbj",
+				"AppClientID": "64nvrlegg97otd9fd0i1p9rahd",
+				"IdentityPoolId": "us-west-2:878956df-5d30-4305-9e33-a08edd3f1242",
+				"IdentityPoolName": "cognito6c2bfdc9_identitypool_6c2bfdc9",
+				"UserPoolName": "cognito6c2bfdc9_userpool_6c2bfdc9"
+			},
+			"lastPushDirHash": "7xIW6ZkUGN/LNBBP5UkXhOTb4Ck="
+		}
+	}
 }

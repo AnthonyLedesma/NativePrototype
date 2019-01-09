@@ -1,55 +1,30 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import Amplify from 'aws-amplify';
+import amplify from './aws-exports';
+
+Amplify.configure(amplify);
+
 import { withAuthenticator } from 'aws-amplify-react-native';
-import { AppLoading, Font } from 'expo';
-// you can also import from @react-navigation/native
 
-import HomeScreen from './screens/Home';
-import LoginView from './screens/Signin';
-
-import React, { Component } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    Button,
-    TouchableHighlight,
-    Image,
-    Alert
-} from 'react-native';
-import MaterialIcons from './node_modules/@expo/vector-icons/fonts/MaterialIcons.ttf';
-
-const AppNavigator = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Signin: { screen: LoginView },
-});
-
-const AppContainer = createAppContainer(AppNavigator);
-
-
-export default class App extends React.Component {
-  state = {
-    fontLoaded: false
-  };
-
-  async componentWillMount() {
-    try {
-      await Font.loadAsync({
-        MaterialIcons
-      });
-      this.setState({ fontLoaded: true });
-    } catch (error) {
-      console.log('error loading icon fonts', error);
-    }
-  }
+class App extends React.Component {
   render() {
-    if (!this.state.fontLoaded) {
-      return <AppLoading />;
-    } else {
-      return <View>
-        <Text>Here is text</Text>
-      </View>;
-    }
-
+    return (
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+      </View>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+export default withAuthenticator(App);
