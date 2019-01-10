@@ -6,23 +6,46 @@ import { API_URL } from '../.env.js';
 
 class AuthScreen extends React.Component {
   state = {
-    data
+    data:'',
+    dataSet : false
   }
   static navigationOptions = {
     title: 'Auth',
   };
 
-  APIFetch() {
-    fetch(API_URL)
-            .then(response => response.json())
-            .then(data => this.setState({ data: JSON.stringify(data) }));
+  async getUserData() {
+    let result = await Auth.currentUserInfo()
+    .then(res => {return res})
+    .catch(err => {return err})
+    
+    console.log(result)
+
+    this.setState({
+      data : JSON.stringify(result),
+      dataSet : true
+    })
+    
   }
+
+  
+  componentDidMount() {
+    this.getUserData();
+  }
+  
+
+  // APIFetch() {
+  //   fetch(API_URL)
+  //           .then(response => response.json())
+  //           .then(data => this.setState({ data: JSON.stringify(data) }));
+  // }
 
   render() {
     const { navigate } = this.props.navigation;
+    
     return (
       <View style={styles.container}>
         <Text>We are now authed!</Text>
+        {this.state.dataSet ? <Text>{this.state.data}</Text> : null}
         <Button
           title="Sign Out"
           onPress={() => {
@@ -33,9 +56,9 @@ class AuthScreen extends React.Component {
             }
           }} />
 
-        <Button
+        {/* <Button
           title="Fetch With API"
-          onPress={() => this.APIFetch()} />
+          onPress={() => this.APIFetch()} /> */}
       </View>
     );
   }
@@ -50,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withAuthenticator(AuthScreen);
+export default withAuthenticator(AuthScreen, includeGreetings = true);
