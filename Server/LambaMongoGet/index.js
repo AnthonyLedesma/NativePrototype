@@ -2,7 +2,7 @@
 //.env files to hold sensitive information. 
 exports.handler = async (event) => {
 var mongoose = require("mongoose");
-const { Site } = require('./models/site');
+const { Site } = require('../../models/site');
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 let mongoDbVal;

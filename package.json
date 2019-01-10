@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -21,28 +20,5 @@
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
   },
-  "private": true
-=======
-  "name": "lambdamongoget",
-  "version": "1.0.1",
-  "description": "Used to preform a basig GET request from the hosted MongoDB.",
-  "main": "index.js",
-  "dependencies": {
-    "mongoose": "^5.4.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paranoia1906/LambdaGetSiteInfo.git"
-  },
-  "author": "Anthony Ledesma",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paranoia1906/LambdaGetSiteInfo/issues"
-  },
-  "homepage": "https://github.com/paranoia1906/LambdaGetSiteInfo#readme"
->>>>>>> lambdamongo/master
+  "private": true  
 }
