@@ -14,11 +14,50 @@ class AuthScreen extends React.Component {
   };
 
   async getUserData() {
-    let result = await Auth.currentUserInfo()
+
+//    currentUserInfo
+//  Object {
+//  "attributes": Object {
+//   "email": "anthonymledesma@gmail.com",
+//     "email_verified": true,
+//    "phone_number": "+16238249691",
+//"phone_number_verified": false,
+//    "sub": "1ffc8b93-136d-4ba5-b6d8-370a12ee528b",
+//   },
+//  "id": "us-west-2:29cabcfa-be3a-48b0-9dcc-5afe1fda4356",
+// "username": "anthonymledesma@gmail.com",
+// }
+    let currentUserInfo = await Auth.currentUserInfo()
     .then(res => {return res})
     .catch(err => {return err})
+    console.log('currentUserInfo')
+    console.log(currentUserInfo)
+
+
+    let currentCredentials = await Auth.currentCredentials()
+    .then(res => {return res})
+    .catch(err => {return err})
+    console.log('currentCredentials')
+    console.log(currentCredentials)
+
+    let currentAuthenticatedUser = await Auth.currentAuthenticatedUser()
+    .then(res => {return res})
+    .catch(err => {return err})
+    console.log('currentAuthenticatedUser')
+    console.log(currentAuthenticatedUser)
+
+
+    let userAttributes = await Auth.userAttributes()
+    .then(res => {return res})
+    .catch(err => {return err})
+    console.log('userAttributes')
+    console.log(userAttributes)
     
-    console.log(result)
+    let userSession = await Auth.userSession()
+    .then(res => {return res})
+    .catch(err => {return err})
+    console.log('userSession')
+    console.log(userSession)
 
     this.setState({
       data : JSON.stringify(result),
