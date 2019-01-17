@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
+import { StyleSheet, View, Image } from 'react-native';
+import { Card, ListItem } from 'react-native-elements';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { Auth } from 'aws-amplify';
 import { API_URL } from '../.env.js';
 
 import ServiceLister from '../components/ServiceLister';
+import { Container, Button, Text } from 'native-base';
 
 const sampleData = [
   {
@@ -60,17 +61,17 @@ class AuthScreen extends React.Component {
           {sampleData.map((u, i) => {
             return (
               <View key={i} style={styles.user}>
-                <Image
-                  style={styles.image}
-                  resizeMode="cover"
-                  source={{ uri: u.avatar }}
-                />
                 <Text style={styles.name}>{u.name}</Text>
-                <ServiceLister services={u.services}/>
+                <ServiceLister services={u.services} />
               </View>
             );
           })}
         </Card>
+        <Container style={styles.container}>
+          <Button>
+            <Text> Here is a button wrapped in a container.</Text>
+          </Button>
+        </Container>
 
         <Text>We are now authed!</Text>
         {this.state.dataSet ? <Text>{this.state.data}</Text> : null}
@@ -83,7 +84,7 @@ class AuthScreen extends React.Component {
               this.props.navigation.navigate('Home');
             }
           }}
-        />
+        ><Text>Sign Out</Text></Button>
       </View>
     );
   }

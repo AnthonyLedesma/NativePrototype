@@ -16,6 +16,7 @@
     "expo-file-system": "~1.1.0",
     "expo-font": "^1.0.0",
     "graphql": "0.13.0",
+    "native-base": "2.8.2",
     "prop-types": "^15.6.0",
     "react-native-elements": "^0.19.1",
     "react-native-fs": "^2.12.1",
