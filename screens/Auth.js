@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Linking } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { Auth } from 'aws-amplify';
@@ -97,6 +97,39 @@ class AuthScreen extends React.Component {
                   <Thumbnail source={{ uri: sampleData.avatar }} />
                   <Text>{sampleData.name}</Text>
                 </Left>
+                <Right
+                  style={{
+                    flexWrap: 'nowrap',
+                    alignItems: 'flex-end',
+                    flexDirection: 'row',
+                  }}>
+                  <Ionicons
+                    name="md-mail"
+                    size={25}
+                    color="black"
+                    style={{
+                      marginHorizontal:20,
+                      end: 100
+                    }}
+                    onPress={() =>
+                      Linking.openURL(`mailto:${authObject.attributes.email}`)
+                    }
+                  />
+
+                  <Ionicons
+                    name="md-phone-portrait"
+                    size={25}
+                    color="black"
+                    style={{
+                      marginHorizontal:20
+                    }}
+                    onPress={() =>
+                      Linking.openURL(
+                        `tel:${authObject.attributes.phone_number}`
+                      )
+                    }
+                  />
+                </Right>
               </CardItem>
               <CardItem>
                 <Body>
@@ -105,41 +138,8 @@ class AuthScreen extends React.Component {
               </CardItem>
               <CardItem>
                 <Body>
-                  <Grid>
-                    <Col>
-                      <Text>Services:</Text>
-                      <ServiceLister services={sampleData.services} />
-                    </Col>
-                    <Col>
-                      
-                        <Button
-                          style={{ marginTop: 2, minWidth: 55}}
-                          primary>
-                          <Text>
-                            <Ionicons name="md-mail" size={25} color="white" />
-                          </Text>
-                        </Button>
-                      
-                      <Right>
-                        <Button
-                          style={{ marginTop: 2, minWidth: 55 }}
-                          iconCenter
-                          primary>
-                          <Text
-                            style={{
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}>{' '}
-                            <Ionicons
-                              name="md-phone-portrait"
-                              size={25}
-                              color="white"
-                            />
-                          </Text>
-                        </Button>
-                      </Right>
-                    </Col>
-                  </Grid>
+                  <Text>Services:</Text>
+                  <ServiceLister services={sampleData.services} />
                 </Body>
               </CardItem>
               <CardItem footer>
