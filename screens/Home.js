@@ -1,3 +1,5 @@
+//Setting auth page to temporary home while in development. See ../navigator/MyNavigator.js
+
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 

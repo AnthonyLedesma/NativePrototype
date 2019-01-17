@@ -8,7 +8,7 @@ const AppNavigator = createStackNavigator(
     Auth: AuthScreen
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Auth"
   }
 );
 const AppContainer = createAppContainer(AppNavigator);
