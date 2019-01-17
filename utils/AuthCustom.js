@@ -10,7 +10,7 @@ class AuthCustom extends Component {
         return (
             <Authenticator
                 authState="signIn"
-                authData={CognitoUser | 'username'}
+                // authData={CognitoUser | 'username'}
                 onStateChange={(authState) => console.log(authState)}
                 amplifyConfig={awsmobile}
             >

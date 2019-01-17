@@ -26,4 +26,3 @@ $ expo login|signin [options]
 
 $ npm install
 ```
-

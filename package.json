@@ -1,24 +1,27 @@
 {
+  "name": "nativeproto",
+  "version": "0.0.0",
+  "description": "React Native Prototype Application. Uses AWS Cognito with API Gateway and Lambda functions. Ties into MySQL for eventual persistent storage. ",
+  "author": null,
+  "private": true,
   "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject"
-  },
   "dependencies": {
-    "@babel/runtime": "^7.2.0",
-    "aws-amplify": "^1.1.18",
-    "aws-amplify-react-native": "^2.1.6",
     "expo": "^32.0.0",
-    "expo-cli": "^2.6.14",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "aws-amplify": "1.1.19",
+    "aws-amplify-react-native": "2.1.7",
+    "expo-asset": "~1.1.1",
+    "expo-constants": "~1.1.0",
+    "expo-file-system": "~1.1.0",
+    "expo-font": "^1.0.0",
+    "graphql": "0.13.0",
+    "prop-types": "^15.6.0",
     "react-native-elements": "^0.19.1",
-    "react-navigation": "^3.0.9"
-  },
-  "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
-  },
-  "private": true
+    "react-native-fs": "^2.12.1",
+    "react-native-paper": "2.2.8",
+    "react-native-sound": "^0.10.9",
+    "react-native-voice": "^0.2.6",
+    "react-navigation": "3.0.9"
+  }
 }

@@ -1,76 +1,49 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Card, ListItem, Button } from 'react-native-elements';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { Auth } from 'aws-amplify';
 import { API_URL } from '../.env.js';
 
+import ServiceLister from '../components/ServiceLister';
+
+const sampleData = [
+  {
+    name: 'Anthony',
+    avatar:
+      'https://s.gravatar.com/avatar/580f8ff7fe0520306252b153e38b2acb?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fpa.png',
+    services: ['Web Development', 'Mobile Applications', 'Marketing'],
+    pricing: 1000,
+  },
+];
+
 class AuthScreen extends React.Component {
   state = {
-    data:'',
-    dataSet : false
-  }
+    data: '',
+    dataSet: false,
+  };
   static navigationOptions = {
     title: 'Auth',
   };
 
   async getUserData() {
-
-//    currentUserInfo
-//  Object {
-//  "attributes": Object {
-//   "email": "anthonymledesma@gmail.com",
-//     "email_verified": true,
-//    "phone_number": "+16238249691",
-//"phone_number_verified": false,
-//    "sub": "1ffc8b93-136d-4ba5-b6d8-370a12ee528b",
-//   },
-//  "id": "us-west-2:29cabcfa-be3a-48b0-9dcc-5afe1fda4356",
-// "username": "anthonymledesma@gmail.com",
-// }
-    let currentUserInfo = await Auth.currentUserInfo()
-    .then(res => {return res})
-    .catch(err => {return err})
-    console.log('currentUserInfo')
-    console.log(currentUserInfo)
-
-
-    let currentCredentials = await Auth.currentCredentials()
-    .then(res => {return res})
-    .catch(err => {return err})
-    console.log('currentCredentials')
-    console.log(currentCredentials)
-
-    let currentAuthenticatedUser = await Auth.currentAuthenticatedUser()
-    .then(res => {return res})
-    .catch(err => {return err})
-    console.log('currentAuthenticatedUser')
-    console.log(currentAuthenticatedUser)
-
-
-    let userAttributes = await Auth.userAttributes()
-    .then(res => {return res})
-    .catch(err => {return err})
-    console.log('userAttributes')
-    console.log(userAttributes)
-    
-    let userSession = await Auth.userSession()
-    .then(res => {return res})
-    .catch(err => {return err})
-    console.log('userSession')
-    console.log(userSession)
+    let result = await Auth.currentUserInfo()
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        return err;
+      });
 
     this.setState({
-      data : JSON.stringify(result),
-      dataSet : true
-    })
-    
+      data: JSON.stringify(result),
+      dataSet: true,
+    });
   }
 
-  
   componentDidMount() {
     this.getUserData();
   }
-  
 
   // APIFetch() {
   //   fetch(API_URL)
@@ -80,9 +53,25 @@ class AuthScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    
+
     return (
       <View style={styles.container}>
+        <Card title="CARD WITH DIVIDER">
+          {sampleData.map((u, i) => {
+            return (
+              <View key={i} style={styles.user}>
+                <Image
+                  style={styles.image}
+                  resizeMode="cover"
+                  source={{ uri: u.avatar }}
+                />
+                <Text style={styles.name}>{u.name}</Text>
+                <ServiceLister services={u.services}/>
+              </View>
+            );
+          })}
+        </Card>
+
         <Text>We are now authed!</Text>
         {this.state.dataSet ? <Text>{this.state.data}</Text> : null}
         <Button
@@ -90,14 +79,11 @@ class AuthScreen extends React.Component {
           onPress={() => {
             Auth.signOut();
             if (Auth.currentAuthenticatedUser()) {
-              console.log("Signed out. Pushing to Home.")
+              console.log('Signed out. Pushing to Home.');
               this.props.navigation.navigate('Home');
             }
-          }} />
-
-        {/* <Button
-          title="Fetch With API"
-          onPress={() => this.APIFetch()} /> */}
+          }}
+        />
       </View>
     );
   }
@@ -112,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withAuthenticator(AuthScreen, includeGreetings = true);
+export default withAuthenticator(AuthScreen);

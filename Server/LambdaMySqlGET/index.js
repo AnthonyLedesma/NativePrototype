@@ -2,13 +2,13 @@
 //.env files to hold sensitive information. 
 //exports.handler = async (event) => {
 
-var DB = require('./.env.js'); //Not included in Lambda
+// import { DBHOST, DBNAME, DBPASS, DBUSER } from './.env.js'; //Not included in Lambda
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: DB.DBHOST,
-    user: DB.DBUSER,
-    password: DB.DBPASS,
-    database: DB.DBNAME
+    host: '107.180.50.175',
+    user: 'NativePrototype',
+    password: 'U4Sd8@q@Udb~',
+    database: 'NativePrototype'
 });
 
 
@@ -18,21 +18,13 @@ const setResponse = async () => {
 
     await connection.query('CREATE TABLE IF NOT EXISTS profile( profile_id INT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, start_date DATE, last_login_date DATE, status TINYINT NOT NULL, priority TINYINT NOT NULL, description TEXT, PRIMARY KEY(profile_id)) ENGINE = INNODB; ', function (error, results, fields) {
         if (error) throw error;
-        response = results;
+        response = results[0];
         console.log('The response is: ', results);
     });
 
-    // await connection.query('INSERT INTO profile (title, priority, description)   VALUES ("Owner", 10, "This guy is a real badass")', function (error, results, fields) {
-    //     if (error) throw error;
-    //     response = results;
-    //     console.log('The response is: ', results);
-    //     return response;
-    // });
-    
-
     await connection.query('SELECT * FROM profile', function (error, results, fields) {
         if (error) throw error;
-        response = results;
+        response = results[0];
         console.log('The response is: ', results);
         return response;
     });
